@@ -17,5 +17,14 @@ summary(data)
 selectedData <- data[, c(-2:-4)]
 str(selectedData)
 
-#Convertir a long format. 
-library(tidyr)
+# Análisis inicial - Visualización de los datos
+meanBase <- mean(selectedData$`Temps model base (s)`)
+meanImproved <- mean(selectedData$`Temps model millorat (s)`)
+
+meanTable <- c(meanBase, meanImproved)
+barplot(meanTable, ylim= c(0,150), 
+        xlim=c(0,5.3), col=c('red', 'green'), 
+        ylab ="Mitjana temps (s)",
+        names.arg = c("Model base","Model millorat"))
+
+
